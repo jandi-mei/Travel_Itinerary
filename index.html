@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Travel Itinerary</title>
+    <style>
+        :root {
+            --primary: #de2910; /* Chinese Red */
+            --accent: #ffde00;  /* Gold Accent */
+            --text-dark: #2d3748;
+            --bg-light: #f7fafc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary), #b31d08);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(222, 41, 16, 0.15);
+        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin: 10px 0 0; opacity: 0.9; font-size: 1.1rem; }
+        
+        .city-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .city-title {
+            font-size: 2rem;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        .location-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .location-item {
+            margin-bottom: 45px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .location-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .location-header {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .location-number {
+            background-color: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .image-box {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .location-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .location-img:hover {
+            transform: scale(1.03);
+        }
+        .description {
+            font-size: 1.05rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: #1a202c;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .map-link:hover { background-color: #000; }
+        .map-link::before { content: "📍 "; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🇨🇳 China Travel Itinerary</h1>
+            <p>Shanghai • Suzhou • Hangzhou</p>
+        </header>
+
+        <!-- ================= SHANGHAI SECTION ================= -->
+        <section class="city-section">
+            <h2 class="city-title">Shanghai (上海)</h2>
+            <ul class="location-list">
+                
+                <li class="location-item">
+                    <div class="location-header"><span class="location-number">1</span> The Bund (外滩)</div>
+                    <div class="image-box">
+                        <img class="location-img" src="https://unsplash.com" alt="The Bund">
+                    </div>
+                    <p class="description">Waterfront area with historic colonial buildings facing the modern Pudong skyscrapers.</p>
+                    <a href="https://google.com" target="_blank" class="map-link">Open in Google Maps</a>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- ================= SUZHOU SECTION ================= -->
+        <section class="city-section">
+            <h2 class="city-title">Suzhou (苏州)</h2>
+            <ul class="location-list">
+                
+                <li class="location-item">
+                    <div class="location-header"><span class="location-number">1</span> Humble Administrator's Garden (拙政园)</div>
+                    <div class="image-box">
+                        <img class="location-img" src="https://unsplash.com" alt="Humble Garden">
+                    </div>
+                    <p class="description">A legendary UNESCO World Heritage site showcasing classic Chinese landscape art.</p>
+                    <a href="https://google.com" target="_blank" class="map-link">Open in Google Maps</a>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- ================= HANGZHOU SECTION ================= -->
+        <section class="city-section">
+            <h2 class="city-title">Hangzhou (杭州)</h2>
+            <ul class="location-list">
+                
+                <li class="location-item">
+                    <div class="location-header"><span class="location-number">1</span> West Lake (西湖)</div>
+                    <div class="image-box">
+                        <img class="location-img" src="https://unsplash.com" alt="West Lake">
+                    </div>
+                    <p class="description">A breathtaking freshwater lake featuring historic temples, pagodas, and lush gardens.</p>
+                    <a href="https://google.com" target="_blank" class="map-link">Open in Google Maps</a>
+                </li>
+
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
