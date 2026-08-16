@@ -1000,119 +1000,118 @@ button {
 /* ================================================================
    20. REDNOTE CARD
    ================================================================ */
-
 .rednote-card {
-
     width: 100%;
-
     aspect-ratio: 9 / 16;
-
+    position: relative;
+    overflow: hidden;
     border-radius:
         var(--radius-medium);
-
-    overflow: hidden;
-
-    position: relative;
-
     border:
         1px solid var(--border);
-
+    background:
+        linear-gradient(
+            145deg,
+            #ff2442,
+            #8e1730
+        );
 }
 
-
-.rednote-content {
-
+/* ================================================================
+   REDNOTE THUMBNAIL
+   ================================================================ */
+.rednote-thumbnail {
     position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+/* ================================================================
+   REDNOTE FALLBACK
+   ================================================================ */
+.rednote-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+/* ================================================================
+   REDNOTE OVERLAY
+   ================================================================ */
+.rednote-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,0.92),
+            rgba(0,0,0,0.05)
+        );
+}
+
+/* ================================================================
+   REDNOTE CONTENT
+   ================================================================ */
+.rednote-content {
+    position: absolute;
     left: 16px;
     right: 16px;
     bottom: 17px;
-
+    z-index: 2;
 }
-
 
 .rednote-label {
-
     font-size: 8px;
-
     text-transform: uppercase;
-
     letter-spacing: 1.2px;
-
-    color: #ff5f7a;
-
+    color: #ff8da0;
     font-weight: 700;
-
     margin-bottom: 7px;
-
 }
-
 
 .rednote-content h4 {
-
     font-size: 14px;
-
     margin-bottom: 5px;
-
 }
-
 
 .rednote-content p {
-
     font-size: 9px;
-
     line-height: 1.5;
-
     color:
         rgba(255,255,255,0.68);
-
     margin-bottom: 12px;
-
 }
 
-
 .rednote-button {
-
     display: inline-flex;
-
     align-items: center;
-
     padding:
         8px 10px;
-
     background:
         rgba(255,255,255,0.12);
-
     backdrop-filter:
         blur(8px);
-
     border:
         1px solid
         rgba(255,255,255,0.15);
-
     color: #fff;
-
     text-decoration: none;
-
     border-radius: 8px;
-
     font-size: 9px;
-
     font-weight: 600;
-
     transition:
         background var(--transition);
-
 }
-
 
 .rednote-button:hover {
-
     background:
         rgba(255,255,255,0.2);
-
 }
-
 
 /* ================================================================
    21. PHOTO GALLERY

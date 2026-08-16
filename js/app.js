@@ -524,286 +524,111 @@ function renderSocialMedia(
    7. SOCIAL MEDIA CARD
    ================================================================ */
 
-function createSocialCard(
-    item,
-    index
-) {
+/* ================================================================
+   SOCIAL MEDIA CARD GENERATOR
 
+   IMPORTANT:
+
+   travel-data.js only needs the URL.
+
+   Example:
+
+   {
+       platform: "tiktok",
+       url: "https://www.tiktok.com/@user/video/123456789"
+   }
+
+   app.js converts that URL into the appropriate embed.
+   ================================================================ */
+
+function createSocialCard(item, index) 
+{
     const platform =
         (
             item.platform ||
             "video"
         ).toLowerCase();
 
-
     /* ============================================================
        REDNOTE
        ============================================================ */
-
-    if (
-        platform === "rednote"
-    ) {
-
-        const thumbnail =
-            item.thumbnail ||
-            "";
-
-
-        const url =
-            item.url ||
-            "https://www.xiaohongshu.com/";
-
-
-        return `
-
-            <div class="media-card">
-
-
-                <span class="platform-badge">
-
-                    Rednote
-
-                </span>
-
-
-                <div
-                    class="rednote-card"
-
-                    style="
-                        background-image:
-                        linear-gradient(
-                            0deg,
-                            rgba(0,0,0,0.9),
-                            rgba(0,0,0,0.08)
-                        ),
-                        url('${thumbnail}');
-                    "
-                >
-
-
-                    <div class="rednote-content">
-
-                        <div class="rednote-label">
-
-                            Xiaohongshu
-
-                        </div>
-
-
-                        <h4>
-
-                            Rednote discovery
-
-                        </h4>
-
-
-                        <p>
-
-                            Open the original
-                            Rednote post.
-
-                        </p>
-
-
-                        <!--
-                            REDNOTE SHARE URL:
-
-                            ${escapeHTML(url)}
-                        -->
-
-
-                        <a
-                            href="${escapeHTML(url)}"
-
-                            target="_blank"
-
-                            rel="noopener noreferrer"
-
-                            class="rednote-button"
-                        >
-
-                            Click to view on Rednote ↗
-
-                        </a>
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-        `;
+    if (platform === "rednote") 
+    {
+        return createRednoteCard(
+            item
+        );
 
     }
-
 
     /* ============================================================
        INSTAGRAM
        ============================================================ */
-
-    if (
-        platform === "instagram"
-    ) {
-
-        return `
-
-            <div class="media-card">
-
-
-                <span class="platform-badge">
-
-                    Instagram
-
-                </span>
-
-
-                <div class="embed-slot">
-
-
-                    ${
-                        item.embed
-
-                        ?
-
-                        item.embed
-
-                        :
-
-                        `
-
-                            <!--
-                                =================================================
-                                PASTE ACTUAL INSTAGRAM EMBED CODE /
-                                BLOCKQUOTE HERE
-
-                                Location media slot:
-                                ${index + 1}
-                                =================================================
-                            -->
-
-
-                            <div class="media-placeholder">
-
-                                <div
-                                    class="media-placeholder-icon"
-                                >
-                                    ◎
-                                </div>
-
-
-                                <strong>
-
-                                    Instagram
-
-                                </strong>
-
-
-                                <small>
-
-                                    Paste the Instagram
-                                    embed code into
-                                    travel-data.js
-
-                                </small>
-
-                            </div>
-
-                        `
-
-                    }
-
-
-                </div>
-
-
-            </div>
-
-        `;
-
+    if (platform === "instagram") 
+    {
+        return createInstagramCard(
+            item,
+            index
+        );
     }
-
 
     /* ============================================================
        TIKTOK
        ============================================================ */
+    if (platform === "tiktok") 
+    {
+        return createTikTokCard(
+            item,
+            index
+        );
+    }
 
-    if (
-        platform === "tiktok"
-    ) {
+    /* ============================================================
+       EMPTY / UNKNOWN MEDIA
+       ============================================================ */
+    return createEmptyMediaCard();
+}
 
+/* ================================================================
+   INSTAGRAM CARD
+   ================================================================ */
+
+function createInstagramCard(item, index) 
+{
+    const url =
+        item.url || "";
+    /*
+     * No URL supplied.
+     */
+
+    if (!url) {
         return `
 
             <div class="media-card">
 
-
                 <span class="platform-badge">
-
-                    TikTok
-
+                    Instagram
                 </span>
-
 
                 <div class="embed-slot">
 
+                    <div class="media-placeholder">
 
-                    ${
-                        item.embed
+                        <div class="media-placeholder-icon">
+                            ◎
+                        </div>
 
-                        ?
+                        <strong>
+                            Instagram
+                        </strong>
 
-                        item.embed
+                        <small>
+                            Add the Instagram URL
+                            in travel-data.js
+                        </small>
 
-                        :
-
-                        `
-
-                            <!--
-                                =================================================
-                                PASTE ACTUAL TIKTOK EMBED CODE /
-                                IFRAME HERE
-
-                                Location media slot:
-                                ${index + 1}
-                                =================================================
-                            -->
-
-
-                            <div class="media-placeholder">
-
-                                <div
-                                    class="media-placeholder-icon"
-                                >
-                                    ♪
-                                </div>
-
-
-                                <strong>
-
-                                    TikTok
-
-                                </strong>
-
-
-                                <small>
-
-                                    Paste the TikTok
-                                    embed code into
-                                    travel-data.js
-
-                                </small>
-
-                            </div>
-
-                        `
-
-                    }
-
+                    </div>
 
                 </div>
-
 
             </div>
 
@@ -812,58 +637,43 @@ function createSocialCard(
     }
 
 
-    /* ============================================================
-       EMPTY SLOT
-       ============================================================ */
+    /*
+     * Instagram's official embed system
+     * uses a blockquote containing the
+     * original post URL.
+     */
 
     return `
 
         <div class="media-card">
 
-
             <span class="platform-badge">
-
-                Add Media
-
+                Instagram
             </span>
-
 
             <div class="embed-slot">
 
+                <blockquote
 
-                <!--
-                    ADD ANOTHER SOCIAL MEDIA EMBED HERE
-                -->
+                    class="instagram-media"
 
+                    data-instgrm-permalink="${escapeHTML(
+                        url
+                    )}"
 
-                <div class="media-placeholder">
+                    data-instgrm-version="14"
 
-                    <div
-                        class="media-placeholder-icon"
-                    >
-                        +
-                    </div>
+                    style="
+                        background:#fff;
+                        border:0;
+                        margin:0;
+                        padding:0;
+                        width:100%;
+                    "
 
-
-                    <strong>
-
-                        Add video
-
-                    </strong>
-
-
-                    <small>
-
-                        Add another
-                        social media embed.
-
-                    </small>
-
-                </div>
-
+                ></blockquote>
 
             </div>
-
 
         </div>
 
@@ -871,6 +681,298 @@ function createSocialCard(
 
 }
 
+/* ================================================================
+   TIKTOK CARD
+   ================================================================ */
+function createTikTokCard(item, index) 
+{
+    const url =
+        item.url || "";
+    /*
+     * No URL supplied.
+     */
+    if (!url) {
+        return `
+
+            <div class="media-card">
+
+                <span class="platform-badge">
+                    TikTok
+                </span>
+
+                <div class="embed-slot">
+
+                    <div class="media-placeholder">
+
+                        <div class="media-placeholder-icon">
+                            ♪
+                        </div>
+
+                        <strong>
+                            TikTok
+                        </strong>
+
+                        <small>
+                            Add the TikTok URL
+                            in travel-data.js
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /*
+     * Extract TikTok video ID.
+     */
+
+    const videoId =
+        extractTikTokVideoId(
+            url
+        );
+
+
+    /*
+     * If we can't determine the ID,
+     * show the URL instead of creating
+     * a broken player.
+     */
+
+    if (!videoId) {
+
+        return `
+
+            <div class="media-card">
+
+                <span class="platform-badge">
+                    TikTok
+                </span>
+
+                <div class="embed-slot">
+
+                    <div class="media-placeholder">
+
+                        <div class="media-placeholder-icon">
+                            ♪
+                        </div>
+
+                        <strong>
+                            TikTok
+                        </strong>
+
+                        <small>
+                            Unable to identify the
+                            TikTok video ID.
+                        </small>
+
+                        <a
+                            href="${escapeHTML(url)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="rednote-button"
+                            style="margin-top:12px;"
+                        >
+                            Open TikTok ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /*
+     * TikTok's official player.
+     *
+     * This avoids needing to paste a huge
+     * TikTok blockquote into our data file.
+     */
+
+    const playerUrl =
+        `https://www.tiktok.com/player/v1/${videoId}`;
+
+
+    return `
+
+        <div class="media-card">
+
+            <span class="platform-badge">
+                TikTok
+            </span>
+
+            <div class="embed-slot">
+
+                <iframe
+
+                    src="${playerUrl}"
+
+                    title="TikTok video"
+
+                    loading="lazy"
+
+                    allow="
+                        autoplay;
+                        encrypted-media;
+                        picture-in-picture;
+                    "
+
+                    allowfullscreen
+
+                    style="
+                        width:100%;
+                        height:100%;
+                        border:0;
+                    "
+
+                ></iframe>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+/* ================================================================
+   EXTRACT TIKTOK VIDEO ID
+   ================================================================ */
+
+function extractTikTokVideoId(url) 
+{
+    if (!url) {
+        return null;
+    }
+    /*
+     * Standard TikTok URL:
+     *
+     * https://www.tiktok.com/@username/video/123456789
+     */
+    const standardMatch =
+        url.match(
+            /\/video\/(\d+)/
+        );
+
+    if (
+        standardMatch &&
+        standardMatch[1]
+    ) {
+        return standardMatch[1];
+    }
+    /*
+     * TikTok short/share URLs are more
+     * difficult because they redirect.
+     *
+     * We intentionally don't guess the ID.
+     */
+    return null;
+}
+
+/* ================================================================
+   REDNOTE CARD
+   ================================================================ */
+
+function createRednoteCard(item) 
+{
+    const url =
+        item.url ||
+        "https://www.xiaohongshu.com/";
+
+    const thumbnail =
+        item.thumbnail ||
+        "";
+
+    return `
+        <div class="media-card">
+            <span class="platform-badge">
+                Rednote
+            </span>
+            <div class="rednote-card">
+                ${
+                    thumbnail
+                    ?
+                    `
+                    <img
+                        class="rednote-thumbnail"
+                        src="${escapeHTML(
+                            thumbnail
+                        )}"
+                        alt="Rednote preview"
+                        loading="lazy"
+                    >
+                    `
+                    :
+                    `
+                    <div class="rednote-fallback">
+                        📕
+                    </div>
+                    `
+                }
+                <div class="rednote-overlay"></div>
+                <div class="rednote-content">
+                    <div class="rednote-label">
+                        Xiaohongshu
+                    </div>
+                    <h4>
+                        Rednote
+                    </h4>
+                    <p>
+                        Open the original
+                        post on Rednote.
+                    </p>
+                    <a
+                        href="${escapeHTML(url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="rednote-button"
+                    >
+                        Click to view on Rednote ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+/* ================================================================
+   EMPTY MEDIA CARD
+   ================================================================ */
+
+function createEmptyMediaCard() {
+    return `
+        <div class="media-card">
+            <span class="platform-badge">
+                Add Media
+            </span>
+            <div class="embed-slot">
+                <div class="media-placeholder">
+                    <div class="media-placeholder-icon">
+                        +
+                    </div>
+                    <strong>
+                        Add video
+                    </strong>
+                    <small>
+                        Add a TikTok,
+                        Instagram or
+                        Rednote post.
+                    </small>
+                </div>
+            </div>
+        </div>
+    `;
+}
 
 /* ================================================================
    8. PHOTO GALLERY

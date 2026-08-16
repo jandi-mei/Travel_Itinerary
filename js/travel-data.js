@@ -45,61 +45,22 @@ const TRAVEL_DATA = {
                      */
                 ],
                 social: [
-                    /* =================================================
-                       INSTAGRAM
-                       ================================================= */
                     {
                         platform: "instagram",
-                        /*
-                         * =================================================
-                         * PASTE ACTUAL INSTAGRAM EMBED CODE HERE
-                         *
-                         * Example:
-                         *
-                         * embed: `
-                         * <blockquote
-                         *   class="instagram-media"
-                         *   data-instgrm-permalink="YOUR_URL"
-                         *   data-instgrm-version="14">
-                         * </blockquote>
-                         * `
-                         * =================================================
-                         */
-                        embed: null
+                        url: "https://www.instagram.com/reel/DYAAjywxGhl/"
                     },
-                    /* =================================================
-                       TIKTOK
-                       ================================================= */
                     {
                         platform: "tiktok",
-                        /*
-                         * =================================================
-                         * PASTE ACTUAL TIKTOK EMBED CODE HERE
-                         * =================================================
-                         */
-                        embed: null
+                        url: "https://www.tiktok.com/@riogarlio/video/7587262459061292295"
                     },
-                    /* =================================================
-                       REDNOTE
-                       ================================================= */
                     {
                         platform: "rednote",
-                        /*
-                         * =================================================
-                         * PASTE YOUR REDNOTE SHARE URL HERE
-                         * =================================================
-                         */
-                        url:
-                            "https://www.xiaohongshu.com/",
-                        thumbnail:
-                            "images/shanghai/bund/01.jpg"
+                        url: "https://www.xiaohongshu.com/explore/6a6b355b0000000006006584",
+                        thumbnail: ""
                     },
-                    /* =================================================
-                       SECOND TIKTOK
-                       ================================================= */
                     {
                         platform: "tiktok",
-                        embed: null
+                        url: "https://www.tiktok.com/@myminthe/photo/7625613701541809428"
                     }
                 ]
             },
@@ -123,25 +84,7 @@ const TRAVEL_DATA = {
                     }
                 ],
                 social: [
-                    {
-                        platform: "instagram",
-                        embed: null
-                    },
-                    {
-                        platform: "tiktok",
-                        embed: null
-                    },
-                    {
-                        platform: "rednote",
-                        url:
-                            "https://www.xiaohongshu.com/",
-                        thumbnail:
-                            "images/shanghai/yugarden/01.jpg"
-                    },
-                    {
-                        platform: "tiktok",
-                        embed: null
-                    }
+ 
                 ]
             },
             /* ====================================================
@@ -163,25 +106,7 @@ const TRAVEL_DATA = {
                     }
                 ],
                 social: [
-                    {
-                        platform: "instagram",
-                        embed: null
-                    },
-                    {
-                        platform: "tiktok",
-                        embed: null
-                    },
-                    {
-                        platform: "rednote",
-                        url:
-                            "https://www.xiaohongshu.com/",
-                        thumbnail:
-                            "images/shanghai/thames/01.jpg"
-                    },
-                    {
-                        platform: "tiktok",
-                        embed: null
-                    }
+                   
                 ]
             },
             /* ====================================================
@@ -203,25 +128,7 @@ const TRAVEL_DATA = {
                     }
                 ],
                 social: [
-                    {
-                        platform: "instagram",
-                        embed: null
-                    },
-                    {
-                        platform: "tiktok",
-                        embed: null
-                    },
-                    {
-                        platform: "rednote",
-                        url:
-                            "https://www.xiaohongshu.com/",
-                        thumbnail:
-                            "images/shanghai/romance/01.jpg"
-                    },
-                    {
-                        platform: "tiktok",
-                        embed: null
-                    }
+                    
                 ]
             },
             /* ====================================================
@@ -243,25 +150,7 @@ const TRAVEL_DATA = {
                     }
                 ],
                 social: [
-                    {
-                        platform: "instagram",
-                        embed: null
-                    },
-                    {
-                        platform: "tiktok",
-                        embed: null
-                    },
-                    {
-                        platform: "rednote",
-                        url:
-                            "https://www.xiaohongshu.com/",
-                        thumbnail:
-                            "images/shanghai/trees/01.jpg"
-                    },
-                    {
-                        platform: "tiktok",
-                        embed: null
-                    }
+                    
                 ]
             },
             /* ====================================================
