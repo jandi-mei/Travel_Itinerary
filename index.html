@@ -1,230 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>China Travel Itinerary</title>
-    <style>
-        :root {
-            --primary: #de2910; /* Chinese Red */
-            --accent: #ffde00;  /* Gold Accent */
-            --text-dark: #2d3748;
-            --bg-light: #f7fafc;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, var(--primary), #b31d08);
-            color: white;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(222, 41, 16, 0.15);
-        }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { margin: 10px 0 0; opacity: 0.9; font-size: 1.1rem; }
-        
-        .city-section {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-        .city-title {
-            font-size: 2rem;
-            color: var(--primary);
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 30px;
-        }
-        .location-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .location-item {
-            margin-bottom: 45px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #edf2f7;
-        }
-        .location-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .location-header {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        .location-number {
-            background-color: var(--primary);
-            color: white;
-            width: 32px;
-            height: 32px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1rem;
-            margin-right: 12px;
-            flex-shrink: 0;
-        }
-        .image-box {
-            width: 100%;
-            height: 380px;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background-color: #e2e8f0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-        .location-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .location-img:hover {
-            transform: scale(1.03);
-        }
-        .description {
-            font-size: 1.05rem;
-            color: #4a5568;
-            margin-bottom: 20px;
-        }
-        .map-link {
-            display: inline-flex;
-            align-items: center;
-            background-color: #1a202c;
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-        .map-link:hover { background-color: #000; }
-        .map-link::before { content: "📍 "; }
-    </style>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Our China Travel Dashboard"
+    >
+
+    <title>China Travel Dashboard</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================================
+         MAIN CSS
+         ========================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
+
 <body>
 
-    <div class="container">
-        <header>
-            <h1>🇨🇳 China Travel Itinerary</h1>
-            <p>Shanghai • Suzhou • Hangzhou</p>
-        </header>
 
-        <!-- ================= SHANGHAI SECTION ================= -->
-        <section class="city-section">
-            <h2 class="city-title">Shanghai (上海)</h2>
-            <ul class="location-list">
-                
-                <li class="location-item">
-                    <div class="location-header"><span class="location-number">1</span> The Bund (外滩)</div>
-                    <div class="image-box">
-                        <img class="location-img" src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/rsfit19201280gsm/events/2021/09/30/c2499dc3-ee3e-45d9-a211-c07c0485c60f-1632973772362-1731367f013c25a56feef5d8c58bde18.jpg" alt="The Bund">
-                    </div>
-                    <p class="description">Waterfront area with historic colonial buildings facing the modern Pudong skyscrapers.</p>
-                    <a href="https://maps.app.goo.gl/Yq2Cb3DuV5WqNGQh7" target="_blank" class="map-link">Open in Google Maps</a>
-                </li>
-                <li class="location-item">
-                    <div class="location-header"><span class="location-number">2</span> Yu Garden </div>
-                    <div class="image-box">
-                        <img class="location-img" src="https://ak-d.tripcdn.com/images/1mi5d224x997d1a4z7D78_R_600_400_R5_Q90.jpg?proc=source/trip" alt="Yu Garden">
-                    </div>
-                    <p class="description">5-acre garden built in 1577 that features Ming dynasty pavilions, ponds, rockeries & arched bridges.</p>
-                    <a href="https://maps.app.goo.gl/CeS2x4Nv2aC2MFdq6" target="_blank" class="map-link">Open in Google Maps</a>
-                </li>
-                <li class="location-item">
-                    <div class="location-header"><span class="location-number">3</span> Thames Town </div>
-                    <div class="image-box">
-                        <img class="location-img" src="https://sometimes-interesting.com/wp-content/uploads/2014/03/thames-town-aerial.jpg" alt="Thames Town">
-                    </div>
-                    <p class="description">Quirky town modeled after a traditional English village, with cobbled streets & Tudor-style homes.</p>
-                    <a href="https://maps.app.goo.gl/NdVS9nWTgQiHEYqz5" target="_blank" class="map-link">Open in Google Maps</a>
-                </li>
-                <li class="location-item">
-                    <div class="location-header"><span class="location-number">4</span> Shanghai Romance Park </div>
-                    <div class="image-box">
-                        <img class="location-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc0VXDEeeRp7KCG2r-tYBDmrxFRjOf6cJ-vGiMNwyph4p_C77IycDMOhwK&s=10" alt="Thames Town">
-                    </div>
-                    <p class="description">Traditional shanghai street.</p>
-                    <a href="https://maps.app.goo.gl/35rdisBLyf6vWd1B8" target="_blank" class="map-link">Open in Google Maps</a>
-                </li>
-                <li class="location-item">
-                    <div class="location-header"><span class="location-number">5</span> Tian'An QianShu </div>
-                    <div class="image-box">
-                        <img class="location-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfhwEZlawvek2E7FkKD4MKz3NZXD5hDJLqitcFtHHSbw&s=10" alt="Thames Town">
-                    </div>
-                    <p class="description">1000 Trees Mall in Shanghai planted by Jacqueline.</p>
-                    <a href="https://maps.app.goo.gl/LJbHDCnPkxBQ7MCB8" target="_blank" class="map-link">Open in Google Maps</a>
-                </li>
-                <li class="location-item">
-                    <div class="location-header"><span class="location-number">5</span> Qibao Ancient Town </div>
-                    <div class="image-box">
-                        <img class="location-img" src="https://images.chinahighlights.com/allpicture/2018/01/34dd228ff6aa4c6f86dcc2ae_cut_2560x800_241_1744907506.jpg" alt="Thames Town">
-                    </div>
-                    <p class="description">Qibao ancient town is a spiritual sanctuary, free from traffic jam, pollution, noise which now plague most of the modern cities we live. Built in the Five Dynasties Period around one thousand years ago, the town witnessed great development in the Song Dynasty and flourishment in the Ming and Qing Dynasties.</p>
-                    <a href="https://maps.app.goo.gl/eC6BATKBSC5T7q5XA" target="_blank" class="map-link">Open in Google Maps</a>
-                </li>
+    <!-- =========================================================
+         APP CONTAINER
+         ========================================================= -->
 
-            </ul>
-        </section>
+    <div class="app">
 
-        <!-- ================= SUZHOU SECTION ================= -->
-        <section class="city-section">
-            <h2 class="city-title">Suzhou (苏州)</h2>
-            <ul class="location-list">
-                
-                <li class="location-item">
-                    <div class="location-header"><span class="location-number">1</span> Humble Administrator's Garden (拙政园)</div>
-                    <div class="image-box">
-                        <img class="location-img" src="https://res.klook.com/images/w_1200,h_630,c_fill,q_65/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/kbsrgrylwap1ydnnmtvz/%E8%8B%8F%E5%B7%9E%E6%8B%99%E6%94%BF%E5%9B%AD%2B%E8%99%8E%E4%B8%98%2B%E5%B1%B1%E5%A1%98%E8%A1%97%E7%A7%81%E4%BA%BA%E5%AF%BC%E8%A7%881%E6%97%A5%E6%B8%B8.jpg" alt="Humble Garden">
+
+        <!-- =====================================================
+             SIDEBAR
+             ===================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- Logo -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🇨🇳
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        China Trip
+                    </strong>
+
+                    <span>
+                        Travel Dashboard
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Trip information -->
+
+            <div class="trip-summary">
+
+                <span class="trip-label">
+                    OUR ADVENTURE
+                </span>
+
+                <h2>
+                    China 2027
+                </h2>
+
+                <p>
+                    Shanghai · Suzhou · Hangzhou
+                </p>
+
+            </div>
+
+
+            <!-- City navigation -->
+
+            <div class="navigation-section">
+
+                <div class="navigation-title">
+                    DESTINATIONS
+                </div>
+
+                <nav class="city-nav">
+
+                    <!--
+                        JAVASCRIPT WILL AUTOMATICALLY
+                        GENERATE THE CITY BUTTONS HERE.
+                    -->
+
+                </nav>
+
+            </div>
+
+
+            <!-- Sidebar footer -->
+
+            <div class="sidebar-footer">
+
+                <div class="travel-status">
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        Trip planning
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- Top bar -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <span class="eyebrow">
+                        OUR CHINA ADVENTURE
+                    </span>
+
+                    <h1>
+                        China Travel
+                        <span>2027</span>
+                    </h1>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <div class="traveler-badge">
+
+                        <span>
+                            👩🏻
+                        </span>
+
+                        <span>
+                            👨🏻
+                        </span>
+
+                        <small>
+                            2 travelers
+                        </small>
+
                     </div>
-                    <p class="description">A legendary UNESCO World Heritage site showcasing classic Chinese landscape art.</p>
-                    <a href="https://maps.app.goo.gl/UUuSxw6aVkRRdLAy9" target="_blank" class="map-link">Open in Google Maps</a>
-                </li>
 
-            </ul>
-        </section>
+                </div>
 
-        <!-- ================= HANGZHOU SECTION ================= -->
-        <section class="city-section">
-            <h2 class="city-title">Hangzhou (杭州)</h2>
-            <ul class="location-list">
-                
-                <li class="location-item">
-                    <div class="location-header"><span class="location-number">1</span> West Lake (西湖)</div>
-                    <div class="image-box">
-                        <img class="location-img" src="https://f6d3w8j9.delivery.rocketcdn.me/wp-content/uploads/2017/10/hangzhou-1871458_1920.jpg" alt="West Lake">
-                    </div>
-                    <p class="description">A breathtaking freshwater lake featuring historic temples, pagodas, and lush gardens.</p>
-                    <a href="https://maps.app.goo.gl/FkNn5Bj9WpPw2NuV7" target="_blank" class="map-link">Open in Google Maps</a>
-                </li>
+            </header>
 
-            </ul>
-        </section>
+
+            <!-- =================================================
+                 DYNAMIC CITY CONTENT
+
+                 JavaScript will generate everything here:
+
+                 City
+                   ↓
+                 Location tabs
+                   ↓
+                 Location information
+                   ↓
+                 Social media
+                   ↓
+                 Personal photos
+                 ================================================= -->
+
+            <div id="city-content"></div>
+
+
+        </main>
+
 
     </div>
 
+
+    <!-- =========================================================
+         PHOTO LIGHTBOX
+         ========================================================= -->
+
+    <div
+        id="lightbox"
+        class="lightbox"
+        aria-hidden="true"
+    >
+
+        <button
+            id="lightboxClose"
+            class="lightbox-close"
+            aria-label="Close photo"
+        >
+            ×
+        </button>
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- =========================================================
+         SOCIAL MEDIA EMBED SCRIPTS
+         ========================================================= -->
+
+    <!-- Instagram -->
+
+    <script
+        async
+        src="https://www.instagram.com/embed.js"
+    ></script>
+
+
+    <!-- TikTok -->
+
+    <script
+        async
+        src="https://www.tiktok.com/embed.js"
+    ></script>
+
+
+    <!-- =========================================================
+         OUR JAVASCRIPT
+
+         IMPORTANT:
+
+         travel-data.js MUST load first because app.js
+         uses TRAVEL_DATA.
+         ========================================================= -->
+
+    <script src="js/travel-data.js"></script>
+
+    <script src="js/app.js"></script>
+
+
 </body>
+
 </html>

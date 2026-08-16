@@ -1,0 +1,1535 @@
+/* ================================================================
+   CHINA TRAVEL DASHBOARD
+   MAIN STYLESHEET
+   ================================================================ */
+
+
+/* ================================================================
+   1. VARIABLES
+   ================================================================ */
+
+:root {
+
+    --bg-main: #0b0d11;
+    --bg-sidebar: #101319;
+    --bg-card: #151922;
+    --bg-card-hover: #1b202b;
+
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+
+    --text-primary: #f5f7fa;
+    --text-secondary: #a7adb8;
+    --text-muted: #707784;
+
+    --accent: #ff4d67;
+    --accent-soft: rgba(255, 77, 103, 0.12);
+
+    --success: #53d769;
+
+    --radius-small: 10px;
+    --radius-medium: 16px;
+    --radius-large: 22px;
+
+    --sidebar-width: 270px;
+
+    --transition:
+        180ms ease;
+
+}
+
+
+/* ================================================================
+   2. RESET
+   ================================================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--bg-main);
+
+    color: var(--text-primary);
+
+    min-height: 100vh;
+
+}
+
+
+button,
+a {
+    font-family: inherit;
+}
+
+
+button {
+    border: none;
+}
+
+
+/* ================================================================
+   3. APP LAYOUT
+   ================================================================ */
+
+.app {
+
+    display: flex;
+
+    min-height: 100vh;
+
+}
+
+
+/* ================================================================
+   4. SIDEBAR
+   ================================================================ */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: var(--sidebar-width);
+
+    background: var(--bg-sidebar);
+
+    border-right:
+        1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 28px 18px;
+
+    z-index: 100;
+
+}
+
+
+/* ================================================================
+   5. LOGO
+   ================================================================ */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        0 10px
+        24px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.logo-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--accent-soft);
+
+    border-radius: 12px;
+
+    font-size: 23px;
+
+}
+
+
+.logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.logo-text strong {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+.logo-text span {
+
+    font-size: 11px;
+
+    color: var(--text-muted);
+
+}
+
+
+/* ================================================================
+   6. TRIP SUMMARY
+   ================================================================ */
+
+.trip-summary {
+
+    padding:
+        25px 10px
+        20px;
+
+}
+
+
+.trip-label {
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: var(--accent);
+
+}
+
+
+.trip-summary h2 {
+
+    font-size: 22px;
+
+    margin-top: 7px;
+
+}
+
+
+.trip-summary p {
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    margin-top: 5px;
+
+}
+
+
+/* ================================================================
+   7. NAVIGATION
+   ================================================================ */
+
+.navigation-section {
+
+    flex: 1;
+
+}
+
+
+.navigation-title {
+
+    padding:
+        0 10px
+        10px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.4px;
+
+    font-weight: 700;
+
+    color: var(--text-muted);
+
+}
+
+
+.city-nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.city-button {
+
+    width: 100%;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+
+}
+
+
+.city-button:hover {
+
+    background:
+        rgba(255,255,255,0.04);
+
+    color: var(--text-primary);
+
+}
+
+
+.city-button.active {
+
+    background:
+        var(--accent-soft);
+
+    color: var(--text-primary);
+
+}
+
+
+.city-icon {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    border-radius: 10px;
+
+    font-size: 19px;
+
+}
+
+
+.city-button.active .city-icon {
+
+    background:
+        rgba(255,77,103,0.18);
+
+}
+
+
+.city-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.city-name {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.city-cn {
+
+    font-size: 10px;
+
+    color: var(--text-muted);
+
+}
+
+
+/* ================================================================
+   8. SIDEBAR FOOTER
+   ================================================================ */
+
+.sidebar-footer {
+
+    padding:
+        18px 10px
+        0;
+
+}
+
+
+.travel-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 10px;
+
+    color: var(--text-muted);
+
+}
+
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 10px
+        rgba(83,215,105,0.5);
+
+}
+
+
+/* ================================================================
+   9. MAIN CONTENT
+   ================================================================ */
+
+.main-content {
+
+    margin-left: var(--sidebar-width);
+
+    width:
+        calc(100% - var(--sidebar-width));
+
+    min-width: 0;
+
+    padding:
+        35px 45px
+        60px;
+
+}
+
+
+/* ================================================================
+   10. TOPBAR
+   ================================================================ */
+
+.topbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin-bottom: 35px;
+
+}
+
+
+.eyebrow {
+
+    display: block;
+
+    color: var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.topbar h1 {
+
+    font-size:
+        clamp(28px, 3vw, 42px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+
+}
+
+
+.topbar h1 span {
+
+    color: var(--text-muted);
+
+    font-weight: 400;
+
+}
+
+
+.traveler-badge {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 2px;
+
+    background:
+        var(--bg-card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 30px;
+
+    padding:
+        7px 12px;
+
+}
+
+
+.traveler-badge span {
+
+    font-size: 16px;
+
+}
+
+
+.traveler-badge small {
+
+    color: var(--text-muted);
+
+    margin-left: 7px;
+
+    font-size: 10px;
+
+}
+
+
+/* ================================================================
+   11. LOCATION TABS
+   ================================================================ */
+
+.location-tabs-wrapper {
+
+    overflow-x: auto;
+
+    margin-bottom: 30px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.location-tabs {
+
+    display: flex;
+
+    gap: 5px;
+
+    min-width: max-content;
+
+}
+
+
+.location-tab {
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    padding:
+        12px 15px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    position: relative;
+
+    white-space: nowrap;
+
+}
+
+
+.location-tab::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+    bottom: -1px;
+
+    height: 2px;
+
+    background: var(--accent);
+
+    transform: scaleX(0);
+
+    transition:
+        transform var(--transition);
+
+}
+
+
+.location-tab:hover {
+
+    color: var(--text-primary);
+
+}
+
+
+.location-tab.active {
+
+    color: var(--text-primary);
+
+}
+
+
+.location-tab.active::after {
+
+    transform: scaleX(1);
+
+}
+
+
+/* ================================================================
+   12. LOCATION PANEL
+   ================================================================ */
+
+.location-panel {
+
+    display: none;
+
+}
+
+
+.location-panel.active {
+
+    display: block;
+
+    animation:
+        fadeIn 250ms ease;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ================================================================
+   13. LOCATION HEADER
+   ================================================================ */
+
+.location-heading {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.location-title {
+
+    font-size: 24px;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+.location-title span {
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    margin-left: 7px;
+
+}
+
+
+.location-description {
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    max-width: 700px;
+
+    margin-top: 8px;
+
+}
+
+
+.map-link {
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding:
+        9px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    transition:
+        all var(--transition);
+
+}
+
+
+.map-link:hover {
+
+    border-color:
+        var(--border-strong);
+
+    color: var(--text-primary);
+
+    background:
+        rgba(255,255,255,0.04);
+
+}
+
+
+/* ================================================================
+   14. MEDIA SECTION
+   ================================================================ */
+
+.media-section-label {
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: var(--text-muted);
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* ================================================================
+   15. MEDIA WORKSPACE
+   ================================================================ */
+
+.media-workspace {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(260px, 1fr);
+
+    gap: 18px;
+
+    align-items: start;
+
+}
+
+
+/* ================================================================
+   16. SOCIAL GRID
+   ================================================================ */
+
+.social-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+
+}
+
+
+/* ================================================================
+   17. MEDIA CARD
+   ================================================================ */
+
+.media-card {
+
+    position: relative;
+
+    min-width: 0;
+
+}
+
+
+.platform-badge {
+
+    position: absolute;
+
+    z-index: 10;
+
+    top: 9px;
+    left: 9px;
+
+    padding:
+        5px 8px;
+
+    background:
+        rgba(0,0,0,0.72);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    border-radius: 7px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    color: #fff;
+
+}
+
+
+/* ================================================================
+   18. EMBED SLOT
+   ================================================================ */
+
+.embed-slot {
+
+    width: 100%;
+
+    aspect-ratio: 9 / 16;
+
+    background:
+        #11151c;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-medium);
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+/*
+ * IMPORTANT:
+
+ * Instagram/TikTok embeds are placed inside this
+ * 9:16 container.
+
+ * Their actual embed code can determine its own
+ * internal rendering.
+ */
+
+.embed-slot > blockquote,
+.embed-slot > iframe {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    min-width: 0 !important;
+
+}
+
+
+/* ================================================================
+   19. MEDIA PLACEHOLDER
+   ================================================================ */
+
+.media-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: var(--text-muted);
+
+}
+
+
+.media-placeholder-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    margin-bottom: 12px;
+
+    font-size: 23px;
+
+}
+
+
+.media-placeholder strong {
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+}
+
+
+.media-placeholder small {
+
+    max-width: 160px;
+
+    line-height: 1.5;
+
+    font-size: 9px;
+
+    margin-top: 5px;
+
+}
+
+
+/* ================================================================
+   20. REDNOTE CARD
+   ================================================================ */
+
+.rednote-card {
+
+    width: 100%;
+
+    aspect-ratio: 9 / 16;
+
+    border-radius:
+        var(--radius-medium);
+
+    overflow: hidden;
+
+    position: relative;
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.rednote-content {
+
+    position: absolute;
+
+    left: 16px;
+    right: 16px;
+    bottom: 17px;
+
+}
+
+
+.rednote-label {
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+
+    color: #ff5f7a;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+
+}
+
+
+.rednote-content h4 {
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.rednote-content p {
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    color:
+        rgba(255,255,255,0.68);
+
+    margin-bottom: 12px;
+
+}
+
+
+.rednote-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        8px 10px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition);
+
+}
+
+
+.rednote-button:hover {
+
+    background:
+        rgba(255,255,255,0.2);
+
+}
+
+
+/* ================================================================
+   21. PHOTO GALLERY
+   ================================================================ */
+
+.photo-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    grid-auto-rows: 135px;
+
+    gap: 8px;
+
+}
+
+
+.photo-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius:
+        var(--radius-small);
+
+    border:
+        1px solid var(--border);
+
+    cursor: pointer;
+
+    background:
+        var(--bg-card);
+
+}
+
+
+.photo-card.large {
+
+    grid-column: span 2;
+
+    grid-row: span 2;
+
+}
+
+
+.photo-card img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 400ms ease;
+
+}
+
+
+.photo-card:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+.photo-overlay {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding:
+        28px 9px
+        8px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,0.75)
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity var(--transition);
+
+}
+
+
+.photo-card:hover .photo-overlay {
+
+    opacity: 1;
+
+}
+
+
+.photo-overlay span {
+
+    font-size: 8px;
+
+    color: #fff;
+
+}
+
+
+/* ================================================================
+   22. LIGHTBOX
+   ================================================================ */
+
+.lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background:
+        rgba(0,0,0,0.92);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+}
+
+
+.lightbox.active {
+
+    display: flex;
+
+}
+
+
+.lightbox img {
+
+    max-width: 90vw;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+}
+
+
+.lightbox-close {
+
+    position: fixed;
+
+    top: 20px;
+    right: 25px;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.1);
+
+    color: #fff;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+/* ================================================================
+   23. TABLET
+   ================================================================ */
+
+@media (max-width: 1200px) {
+
+    .main-content {
+
+        padding-left: 30px;
+        padding-right: 30px;
+
+    }
+
+
+    .media-workspace {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .photo-gallery {
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        grid-auto-rows: 180px;
+
+    }
+
+
+    .photo-card.large {
+
+        grid-column: span 2;
+
+    }
+
+}
+
+
+/* ================================================================
+   24. SMALL TABLET
+   ================================================================ */
+
+@media (max-width: 900px) {
+
+    :root {
+
+        --sidebar-width: 220px;
+
+    }
+
+
+    .social-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .photo-gallery {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+}
+
+
+/* ================================================================
+   25. MOBILE
+   ================================================================ */
+
+@media (max-width: 700px) {
+
+    .app {
+
+        display: block;
+
+    }
+
+
+    .sidebar {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 15px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid var(--border);
+
+    }
+
+
+    .logo {
+
+        padding-bottom: 15px;
+
+    }
+
+
+    .trip-summary {
+
+        display: none;
+
+    }
+
+
+    .navigation-section {
+
+        padding-top: 12px;
+
+    }
+
+
+    .navigation-title {
+
+        display: none;
+
+    }
+
+
+    .city-nav {
+
+        flex-direction: row;
+
+        overflow-x: auto;
+
+    }
+
+
+    .city-button {
+
+        width: auto;
+
+        flex-shrink: 0;
+
+    }
+
+
+    .sidebar-footer {
+
+        display: none;
+
+    }
+
+
+    .main-content {
+
+        margin-left: 0;
+
+        width: 100%;
+
+        padding:
+            25px 15px
+            40px;
+
+    }
+
+
+    .topbar {
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .topbar-right {
+
+        display: none;
+
+    }
+
+
+    .location-heading {
+
+        flex-direction: column;
+
+    }
+
+
+    .social-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .photo-gallery {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        grid-auto-rows: 140px;
+
+    }
+
+}
+
+
+/* ================================================================
+   26. VERY SMALL MOBILE
+   ================================================================ */
+
+@media (max-width: 450px) {
+
+    .social-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .photo-gallery {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .photo-card.large {
+
+        grid-column: span 2;
+
+    }
+
+}
