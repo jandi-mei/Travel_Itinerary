@@ -732,8 +732,8 @@ function createTikTokCard(item, index)
      * Extract TikTok video ID.
      */
 
-    const videoId =
-        extractTikTokVideoId(
+    const postId =
+        extractTikTokPostId(
             url
         );
 
@@ -744,7 +744,7 @@ function createTikTokCard(item, index)
      * a broken player.
      */
 
-    if (!videoId) {
+    if (!postId) {
 
         return `
 
@@ -800,7 +800,7 @@ function createTikTokCard(item, index)
      */
 
     const playerUrl =
-        `https://www.tiktok.com/player/v1/${videoId}`;
+        `https://www.tiktok.com/player/v1/${postId}`;
 
 
     return `
@@ -848,34 +848,32 @@ function createTikTokCard(item, index)
 /* ================================================================
    EXTRACT TIKTOK VIDEO ID
    ================================================================ */
+function extractTikTokPostId(url) {
 
-function extractTikTokVideoId(url) 
-{
     if (!url) {
         return null;
     }
+
     /*
-     * Standard TikTok URL:
+     * Supports BOTH:
      *
-     * https://www.tiktok.com/@username/video/123456789
+     * /video/123456789
+     *
+     * /photo/123456789
      */
-    const standardMatch =
+
+    const match =
         url.match(
-            /\/video\/(\d+)/
+            /\/(?:video|photo)\/(\d+)/
         );
 
     if (
-        standardMatch &&
-        standardMatch[1]
+        match &&
+        match[1]
     ) {
-        return standardMatch[1];
+        return match[1];
     }
-    /*
-     * TikTok short/share URLs are more
-     * difficult because they redirect.
-     *
-     * We intentionally don't guess the ID.
-     */
+
     return null;
 }
 
