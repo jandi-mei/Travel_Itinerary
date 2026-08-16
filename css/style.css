@@ -1532,3 +1532,130 @@ button {
     }
 
 }
+
+/* ================================================================
+   MEDIA FULLSCREEN BUTTON
+   ================================================================ */
+
+.media-card {
+    position: relative;
+}
+
+
+.media-fullscreen-button {
+
+    position: absolute;
+
+    right: 10px;
+    bottom: 10px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.18);
+
+    border-radius: 8px;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    backdrop-filter:
+        blur(8px);
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.media-fullscreen-button:hover {
+
+    background:
+        rgba(0, 0, 0, 0.85);
+
+    transform:
+        scale(1.05);
+
+}
+
+
+.media-fullscreen-button:active {
+
+    transform:
+        scale(0.95);
+
+}
+
+/* ================================================================
+   FULLSCREEN MEDIA CARD
+   ================================================================ */
+
+.media-card:fullscreen {
+
+    width: 100vw;
+    height: 100vh;
+
+    max-width: none;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        #000;
+
+    border: none;
+
+    border-radius: 0;
+
+}
+
+
+.media-card:fullscreen .embed-slot {
+
+    width: min(
+        56.25vh,
+        100vw
+    );
+
+    height: min(
+        100vh,
+        177.78vw
+    );
+
+    aspect-ratio: 9 / 16;
+
+}
+
+
+.media-card:fullscreen
+.media-fullscreen-button {
+
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 22px;
+
+}

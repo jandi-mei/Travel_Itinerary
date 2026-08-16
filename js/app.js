@@ -309,16 +309,11 @@ function renderCity(cityId) {
         }
     );
 
+    // Initialize fullscreen buttons after media cards have been created.
+    initializeFullscreenButtons();
 
-    /*
-     * Process embeds after DOM
-     * has been created.
-     */
-
-    setTimeout(
-        refreshSocialEmbeds,
-        100
-    );
+    // Process embeds after DOM has been created.
+    setTimeout(refreshSocialEmbeds, 100);
 
 }
 
@@ -654,26 +649,20 @@ function createInstagramCard(item, index)
             <div class="embed-slot">
 
                 <blockquote
-
                     class="instagram-media"
-
-                    data-instgrm-permalink="${escapeHTML(
-                        url
-                    )}"
-
+                    data-instgrm-permalink="${escapeHTML(url)}"
                     data-instgrm-version="14"
-
-                    style="
-                        background:#fff;
-                        border:0;
-                        margin:0;
-                        padding:0;
-                        width:100%;
-                    "
-
                 ></blockquote>
 
             </div>
+            <button
+                class="media-fullscreen-button"
+                type="button"
+                aria-label="Open Instagram in fullscreen"
+                title="Fullscreen"
+            >
+                ⛶
+            </button>
 
         </div>
 
@@ -814,27 +803,15 @@ function createTikTokCard(item, index)
             <div class="embed-slot">
 
                 <iframe
-
                     src="${playerUrl}"
-
                     title="TikTok video"
-
                     loading="lazy"
-
                     allow="
                         autoplay;
                         encrypted-media;
                         picture-in-picture;
                     "
-
                     allowfullscreen
-
-                    style="
-                        width:100%;
-                        height:100%;
-                        border:0;
-                    "
-
                 ></iframe>
 
             </div>
@@ -1475,3 +1452,49 @@ function initializeApp() {
    14. START APPLICATION
    ================================================================ */
 document.addEventListener("DOMContentLoaded", initializeApp);
+
+/* ================================================================
+   MEDIA FULLSCREEN
+   ================================================================ */
+
+function initializeFullscreenButtons() {
+    const buttons =
+        document.querySelectorAll(
+            ".media-fullscreen-button"
+        );
+
+    buttons.forEach(button => {
+        button.addEventListener(
+            "click",
+            async event => {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const mediaCard =
+                    button.closest(
+                        ".media-card"
+                    );
+
+                if (!mediaCard) {
+                    return;
+                }
+
+                try {
+                    if (
+                        !document.fullscreenElement
+                    ) {
+                        await mediaCard.requestFullscreen();
+
+                    } else {
+                        await document.exitFullscreen();
+                    }
+                } catch (error) {
+                    console.error(
+                        "Fullscreen failed:",
+                        error
+                    );
+                }
+            }
+        );
+    });
+}
