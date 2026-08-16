@@ -839,7 +839,7 @@ button {
 .media-card {
 
     position: relative;
-
+    aspect-ratio: 9 / 16;
     min-width: 0;
 
 }
@@ -883,24 +883,17 @@ button {
    ================================================================ */
 
 .embed-slot {
-
     width: 100%;
-
+    height: 100%;
     aspect-ratio: 9 / 16;
-
     background:
         #11151c;
-
     border:
         1px solid var(--border);
-
     border-radius:
         var(--radius-medium);
-
     overflow: hidden;
-
     position: relative;
-
 }
 
 
@@ -916,13 +909,9 @@ button {
 
 .embed-slot > blockquote,
 .embed-slot > iframe {
-
     width: 100% !important;
-
     max-width: 100% !important;
-
     min-width: 0 !important;
-
 }
 
 
